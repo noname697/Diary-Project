@@ -4,7 +4,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <header>
-      <FaBookOpen />
+      <FaBookOpen size={50}/>
       <h1>Diary</h1>
     </header>
   );

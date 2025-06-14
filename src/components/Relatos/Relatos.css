@@ -1,0 +1,39 @@
+section{
+    padding: 32px;
+}
+
+h2{
+    font-size: 32px;
+    display: inline-block;
+    border-bottom: 2px solid #000;
+}
+
+.relatos{
+    margin: 50px;
+}
+
+.relato {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #94D7F2;
+    border-radius: 25px;
+    padding: 20px;
+    color: #2685BF;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px;
+}
+
+.data{
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.barra{
+    width: 5px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: #3D9DD9;
+}
