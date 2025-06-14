@@ -1,8 +1,12 @@
 const express = require("express");
-const Controller = require('./controllers/controller.js')
+const Controller = require("./controllers/controller.js");
+const cors = require("cors");
 
 const app = express();
 const PORT = 8000;
+
+app.use(express.json());
+app.use(cors({ origin: "*" }));
 
 app.get("/", (req, res) => {
   Controller.pegaTodos(req, res);

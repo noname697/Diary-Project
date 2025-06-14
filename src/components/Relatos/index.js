@@ -1,6 +1,13 @@
+import { useEffect } from "react";
+import { getRelatos } from "../../services/relatos.js"
 import "./Relatos.css";
 
 const Relatos = () => {
+
+  useEffect(() => {
+    const listaRelatos = getRelatos()
+}, [])
+
   return (
     <section>
       <h2>Relatos</h2>
