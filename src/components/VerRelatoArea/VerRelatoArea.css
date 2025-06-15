@@ -16,8 +16,9 @@
 }
 
 .data {
-  font-size: 1rem;
-  color: #666;
+  font-size: 2rem;
+  text-align: left;
+  color: #2685BF;
 }
 
 .botoes {
@@ -26,31 +27,12 @@
   margin-top: 10px;
 }
 
-.botoes button {
-  padding: 8px 16px;
+.botoes .button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.9rem;
   transition: background-color 0.2s;
-}
-
-.editar {
-  background-color: #4caf50;
-  color: white;
-}
-
-.editar:hover {
-  background-color: #45a045;
-}
-
-.apagar {
-  background-color: #f44336;
-  color: white;
-}
-
-.apagar:hover {
-  background-color: #d7382f;
 }
 
 .verRelato {

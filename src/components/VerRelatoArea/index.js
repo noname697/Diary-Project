@@ -1,18 +1,20 @@
 import "./VerRelatoArea.css";
 import { MdDelete, MdEdit } from "react-icons/md";
 
-const VerRelatoArea = ({ color, size }) => {
+const VerRelatoArea = ({ color, size, data }) => {
+
+
   return (
     <div className="verRelatoContainer">
-      <div class="topo">
-        <span class="data">15 de Junho de 2025</span>
-        <div class="botoes">
-          <MdEdit size={size} color={color} />
-          <MdDelete size={size} color={color} />
+      <div className="topo">
+        <h1 className="data">{data}</h1>
+        <div className="botoes">
+          <MdEdit className="button" size={size} color={color} />
+          <MdDelete className="button" size={size} color={color} />
         </div>
       </div>
 
-      <div class="verRelato">
+      <div className="verRelato">
         <p>
           Hoje foi um daqueles dias em que tudo parecia dar errado, mas no fim
           percebi que cada desafio trouxe um aprendizado importante. Caminhei
