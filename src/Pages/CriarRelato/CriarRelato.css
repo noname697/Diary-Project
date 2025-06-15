@@ -1,6 +1,12 @@
 .sessao {
-    display: flex;
+    display       : flex;
     flex-direction: column;
+    align-items   : center;
+    gap           : 3rem;
+}
+
+.cabecalho {
+    display    : flex;
+    margin     : 25px;
     align-items: center;
-    gap: 3rem;
 }

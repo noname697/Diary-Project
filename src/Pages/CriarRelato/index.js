@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Formulario from "../../components/Formulario";
-import Header from "../../components/Header";
 import "./CriarRelato.css";
 import { postRelatos } from "../../services/relatos";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { IoMdArrowBack } from "react-icons/io";
 
 const CriarRelato = () => {
   const [data, setData] = useState("");
@@ -24,9 +24,13 @@ const CriarRelato = () => {
 
   return (
     <div>
-      <Header />
-      <section className="sessao">
+      <div className="cabecalho">
+        <Link to="/" className="link">
+          <IoMdArrowBack size={25} />
+        </Link>
         <h2>Criar Relato</h2>
+      </div>
+      <section className="sessao">
         <Formulario
           tipo="Date"
           placeholder="Escreva seu relato completo aqui..."
