@@ -17,37 +17,6 @@ h2 {
     gap           : 32px;
 }
 
-.relato {
-    display         : flex;
-    justify-content : space-between;
-    align-items     : center;
-    background-color: #94D7F2;
-    border-radius   : 25px;
-    padding         : 20px;
-    color           : #2685BF;
-    cursor          : pointer;
-    box-shadow      : 4px 4px 10px;
-    transition      : 0.2s;
-}
-
-.relato:hover {
-    scale: 1.01;
-}
-
-.data {
-    padding    : 0 20px;
-    display    : flex;
-    align-items: center;
-    gap        : 32px;
-}
-
-.barra {
-    width           : 5px;
-    height          : 100px;
-    border-radius   : 10px;
-    background-color: #3D9DD9;
-}
-
 .cabecalho {
     position: relative;
     height  : 50px;
@@ -67,10 +36,4 @@ h2 {
     top      : 50%;
     transform: translateY(-50%);
     cursor   : pointer;
-}
-
-.diaemes{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }

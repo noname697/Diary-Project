@@ -3,7 +3,7 @@ header {
     padding         : 20px;
 }
 
-.link {
+.linkHeader {
     display        : flex;
     justify-content: center;
     align-items    : center;
