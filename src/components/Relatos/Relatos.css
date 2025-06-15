@@ -10,6 +10,9 @@ h2{
 
 .relatos{
     margin: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
 .relato {
@@ -22,6 +25,11 @@ h2{
     color: #2685BF;
     cursor: pointer;
     box-shadow: 5px 5px 5px;
+    transition: 0.2s;
+}
+
+.relato:hover{
+    scale: 1.01;
 }
 
 .data{
