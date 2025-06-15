@@ -12,6 +12,10 @@ app.get("/", (req, res) => {
   Controller.pegaTodos(req, res);
 });
 
+app.post('/', (req, res) => {
+  Controller.postaRelato(req, res)
+})
+
 app.listen(PORT, () => {
   console.log("Ouvindo a porta: " + PORT);
 });
