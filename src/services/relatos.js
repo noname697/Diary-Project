@@ -20,4 +20,10 @@ async function getRelatoEspecifico(id) {
   return response.data
 }
 
-export { getRelatos, postRelatos, getRelatoEspecifico };
+async function putRelato(id){
+  const response = await axios.put(`http://localhost:8000/${id}`)
+
+  console.log(response.data)
+}
+
+export { getRelatos, postRelatos, getRelatoEspecifico, putRelato };

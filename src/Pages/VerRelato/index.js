@@ -25,6 +25,7 @@ const VerRelato = () => {
       <VerRelatoArea
         color="#2685BF"
         size="32"
+        id={relato.id}
         data={relato.data}
         texto={relato.texto}
       />

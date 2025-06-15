@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router";
 import "./VerRelatoArea.css";
 import { MdDelete, MdEdit } from "react-icons/md";
 
-const VerRelatoArea = ({ color, size, data, texto }) => {
+const VerRelatoArea = ({ color, size, data, texto, id }) => {
   let dataFormatada = new Date(data);
   dataFormatada = dataFormatada.toLocaleDateString("pt-BR", {
     day: "numeric",
@@ -9,12 +10,19 @@ const VerRelatoArea = ({ color, size, data, texto }) => {
     year: "numeric",
   });
 
+  const navigate = useNavigate();
+
   return (
     <div className="verRelatoContainer">
       <div className="topo">
         <h1 className="dataA">{dataFormatada}</h1>
         <div className="botoes">
-          <MdEdit className="button" size={size} color={color} />
+          <MdEdit
+            onClick={() => navigate(`/editarRelato/${id}`)}
+            className="button"
+            size={size}
+            color={color}
+          />
           <MdDelete className="button" size={size} color={color} />
         </div>
       </div>
