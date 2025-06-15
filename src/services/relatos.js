@@ -26,4 +26,9 @@ async function putRelato(id, dados){
   console.log(response.data)
 }
 
-export { getRelatos, postRelatos, getRelatoEspecifico, putRelato };
+async function deleteRelato(id){
+  const response = await axios.delete(`http:localhost:8000/${id}`)
+  console.log(response.data)
+}
+
+export { getRelatos, postRelatos, getRelatoEspecifico, putRelato, deleteRelato };
