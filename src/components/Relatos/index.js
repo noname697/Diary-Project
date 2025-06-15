@@ -3,7 +3,6 @@ import { getRelatos } from "../../services/relatos.js";
 import "./Relatos.css";
 import { MdAddCircle } from "react-icons/md";
 import { Link } from "react-router";
-import CriarRelato from "../../Pages/CriarRelato/index.js";
 
 const Relatos = () => {
   const [listaRelatos, setListaRelatos] = useState([]);

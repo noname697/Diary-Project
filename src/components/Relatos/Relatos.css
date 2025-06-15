@@ -5,8 +5,9 @@ section {
 h2 {
     font-size    : 32px;
     display      : inline-block;
-    border-bottom: 2px solid #000;
     margin       : 0 auto;
+        border-bottom: 2px solid #2685BF;
+    color: #2685BF;
 }
 
 .relatos {
@@ -57,8 +58,6 @@ h2 {
     left         : 50%;
     transform    : translateX(-50%);
     font-size    : 32px;
-    border-bottom: 2px solid #2685BF;
-    color: #2685BF;
     margin       : 0;
 }
 
