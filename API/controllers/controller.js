@@ -19,6 +19,16 @@ class Controller {
       res.status(500).json({ error: error.message });
     }
   }
+
+  static async pegaUm(req, res) {
+    try {
+      const id = req.params.id;
+      const relato = await Service.pegaEspecifico(id);
+      res.status(200).json(relato);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
 }
 
 module.exports = Controller;

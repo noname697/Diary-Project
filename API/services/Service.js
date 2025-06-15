@@ -8,6 +8,10 @@ class Service {
   static async postRelato(dados) {
     return Relato.create(dados);
   }
+
+  static async pegaEspecifico(id) {
+    return Relato.findByPk(id);
+  }
 }
 
 module.exports = Service;

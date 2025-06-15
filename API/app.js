@@ -8,13 +8,9 @@ const PORT = 8000;
 app.use(express.json());
 app.use(cors({ origin: "*" }));
 
-app.get("/", (req, res) => {
-  Controller.pegaTodos(req, res);
-});
-
-app.post('/', (req, res) => {
-  Controller.postaRelato(req, res)
-})
+app.get("/", (req, res) => Controller.pegaTodos(req, res));
+app.get("/:id", (req, res) => Controller.pegaUm(req, res));
+app.post("/", (req, res) => Controller.postaRelato(req, res));
 
 app.listen(PORT, () => {
   console.log("Ouvindo a porta: " + PORT);
