@@ -15,6 +15,7 @@ const Relatos = () => {
 
   const fetchRelatos = async () => {
     setListaRelatos(await getRelatos());
+    setListaRelatos([])
   };
 
   return (
@@ -22,20 +23,22 @@ const Relatos = () => {
       <Titulo texto="Relatos" Icone={MdAddCircle} size={30} to="/criarRelato"/>
 
       <div className="relatos">
-        {listaRelatos
-          .sort((a, b) => new Date(b.data) - new Date(a.data))
-          .map((relato) => {
-            const data = new Date(relato.data);
-            const dia = String(data.getDate()).padStart(2, "0");
-            const mes = data.toLocaleString("pt-BR", { month: "long" });
-            const previa = relato.texto.slice(0, 200);
-
-            return (
-              <Link className="link" to={`/verRelato/${relato.id}`}>
-                <Relato id={relato.id} dia={dia} mes={mes} previa={previa} />
-              </Link>
-            );
-          })}
+        {listaRelatos.length >= 1 ? (
+          listaRelatos
+            .sort((a, b) => new Date(b.data) - new Date(a.data))
+            .map((relato) => {
+              const data = new Date(relato.data);
+              const dia = String(data.getDate()).padStart(2, "0");
+              const mes = data.toLocaleString("pt-BR", { month: "long" });
+              const previa = relato.texto.slice(0, 200);
+  
+              return (
+                <Link className="link" to={`/verRelato/${relato.id}`}>
+                  <Relato id={relato.id} dia={dia} mes={mes} previa={previa} />
+                </Link>
+              );
+            })
+        ) : (<p>Você ainda não tem relatos!</p>)}
       </div>
     </section>
   );
