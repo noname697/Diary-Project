@@ -16,24 +16,3 @@ h2 {
     flex-direction: column;
     gap           : 32px;
 }
-
-.cabecalho {
-    position: relative;
-    height  : 50px;
-}
-
-.cabecalho h2 {
-    position     : absolute;
-    left         : 50%;
-    transform    : translateX(-50%);
-    font-size    : 32px;
-    margin       : 0;
-}
-
-.icone {
-    position : absolute;
-    right    : 0;
-    top      : 50%;
-    transform: translateY(-50%);
-    cursor   : pointer;
-}

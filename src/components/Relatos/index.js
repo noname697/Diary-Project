@@ -4,6 +4,7 @@ import "./Relatos.css";
 import { MdAddCircle } from "react-icons/md";
 import { Link } from "react-router";
 import Relato from "../Relato/index.js";
+import Titulo from "../Titulo/index.js";
 
 const Relatos = () => {
   const [listaRelatos, setListaRelatos] = useState([]);
@@ -18,12 +19,8 @@ const Relatos = () => {
 
   return (
     <section>
-      <div className="cabecalho">
-        <h2>Relatos</h2>
-        <Link to="/criarRelato">
-          <MdAddCircle size={30} className="icone" color="#2685BF" />
-        </Link>
-      </div>
+      <Titulo texto="Relatos" Icone={MdAddCircle} size={30} to="/criarRelato"/>
+
       <div className="relatos">
         {listaRelatos
           .sort((a, b) => new Date(b.data) - new Date(a.data))
