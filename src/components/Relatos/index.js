@@ -15,12 +15,11 @@ const Relatos = () => {
 
   const fetchRelatos = async () => {
     setListaRelatos(await getRelatos());
-    setListaRelatos([])
   };
 
   return (
     <section>
-      <Titulo texto="Relatos" Icone={MdAddCircle} size={30} to="/criarRelato"/>
+      <Titulo posicaoIcone="right" texto="Relatos" Icone={MdAddCircle} size={30} to="/criarRelato"/>
 
       <div className="relatos">
         {listaRelatos.length >= 1 ? (
