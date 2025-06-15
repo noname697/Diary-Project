@@ -2,7 +2,9 @@ import { useNavigate } from "react-router";
 import "./VerRelatoArea.css";
 import { MdDelete, MdEdit } from "react-icons/md";
 
-const VerRelatoArea = ({ color, size, data, texto, id }) => {
+
+const VerRelatoArea = ({ color, size, data, texto, id, PopUp }) => {
+
   let dataFormatada = new Date(data);
   dataFormatada = dataFormatada.toLocaleDateString("pt-BR", {
     day: "numeric",
@@ -23,7 +25,12 @@ const VerRelatoArea = ({ color, size, data, texto, id }) => {
             size={size}
             color={color}
           />
-          <MdDelete className="button" size={size} color={color} />
+          <MdDelete
+            onClick={PopUp}
+            className="button"
+            size={size}
+            color={color}
+          />
         </div>
       </div>
 
