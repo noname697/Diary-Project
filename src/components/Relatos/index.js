@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { getRelatos } from "../../services/relatos.js";
 import "./Relatos.css";
 import { MdAddCircle } from "react-icons/md";
+import { Link } from "react-router";
+import CriarRelato from "../../Pages/CriarRelato/index.js";
 
 const Relatos = () => {
   const [listaRelatos, setListaRelatos] = useState([]);
@@ -17,8 +19,10 @@ const Relatos = () => {
   return (
     <section>
       <div className="cabecalho">
-      <h2>Relatos</h2>
-      <MdAddCircle size={30} className="icone" color="#2685BF"/>
+        <h2>Relatos</h2>
+        <Link to="/criarRelato">
+          <MdAddCircle size={30} className="icone" color="#2685BF" />
+        </Link>
       </div>
       <div className="relatos">
         {listaRelatos.map((relato) => {
