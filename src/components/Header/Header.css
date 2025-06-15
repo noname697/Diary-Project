@@ -1,0 +1,13 @@
+header {
+    background-color: #BBE8F2;
+    padding         : 20px;
+}
+
+.linkHeader {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    gap            : 2rem;
+    text-decoration: none;
+    color          : #2685BF;
+}

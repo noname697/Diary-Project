@@ -1,0 +1,49 @@
+.verRelatoContainer {
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.dataA {
+  font-size: 2rem;
+  text-align: left;
+  color: #2685BF;
+  margin: 0;
+}
+
+.botoes {
+  display: flex;
+  gap: 2rem;
+  margin-top: 10px;
+}
+
+.botoes .button {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.verRelato {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+  white-space: pre-line;
+}
+
+.verRelato p{
+    font-family: 'Poppins';
+    text-align: justify;
+}
