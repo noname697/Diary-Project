@@ -32,7 +32,11 @@ const EditarRelato = () => {
 
   const submeterForm = (e) => {
     e.preventDefault();
-    putRelato(relato.id);
+    const dados = {
+      data: data,
+      texto: texto,
+    };
+    putRelato(relato.id, dados);
     navigate(`/verRelato/${id}`);
   };
 

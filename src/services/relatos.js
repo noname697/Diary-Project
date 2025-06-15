@@ -20,8 +20,8 @@ async function getRelatoEspecifico(id) {
   return response.data
 }
 
-async function putRelato(id){
-  const response = await axios.put(`http://localhost:8000/${id}`)
+async function putRelato(id, dados){
+  const response = await axios.put(`http://localhost:8000/${id}`, dados)
 
   console.log(response.data)
 }

@@ -12,6 +12,17 @@ class Service {
   static async pegaEspecifico(id) {
     return Relato.findByPk(id);
   }
+
+  static async putRelato(id, dados) {
+    return Relato.update(
+      { data: dados.data, texto: dados.texto },
+      {
+        where: {
+          id: id,
+        },
+      }
+    );
+  }
 }
 
 module.exports = Service;

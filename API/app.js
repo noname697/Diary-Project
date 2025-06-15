@@ -11,6 +11,7 @@ app.use(cors({ origin: "*" }));
 app.get("/", (req, res) => Controller.pegaTodos(req, res));
 app.get("/:id", (req, res) => Controller.pegaUm(req, res));
 app.post("/", (req, res) => Controller.postaRelato(req, res));
+app.put("/:id", (req, res) => Controller.editaRelato(req, res))
 
 app.listen(PORT, () => {
   console.log("Ouvindo a porta: " + PORT);
