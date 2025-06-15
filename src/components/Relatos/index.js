@@ -24,7 +24,7 @@ const Relatos = () => {
         </Link>
       </div>
       <div className="relatos">
-        {listaRelatos.map((relato) => {
+        {listaRelatos.sort((a, b) => new Date(b.data) - new Date(a.data)).map((relato) => {
           const data = new Date(relato.data);
           const dia = String(data.getDate()).padStart(2, "0");
           const mes = data.toLocaleString("pt-BR", { month: "long" });
