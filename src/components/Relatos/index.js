@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getRelatos } from "../../services/relatos.js";
 import "./Relatos.css";
+import { MdAddCircle } from "react-icons/md";
 
 const Relatos = () => {
   const [listaRelatos, setListaRelatos] = useState([]);
@@ -15,7 +16,10 @@ const Relatos = () => {
 
   return (
     <section>
+      <div className="cabecalho">
       <h2>Relatos</h2>
+      <MdAddCircle size={30} className="icone" color="#2685BF"/>
+      </div>
       <div className="relatos">
         {listaRelatos.map((relato) => {
           const data = new Date(relato.data);
