@@ -2,6 +2,7 @@ import { useState } from "react";
 import Formulario from "../../components/Formulario";
 import Header from "../../components/Header";
 import "./CriarRelato.css";
+import { postRelatos } from "../../services/relatos";
 
 const CriarRelato = () => {
   const [data, setData] = useState("");
@@ -9,8 +10,12 @@ const CriarRelato = () => {
 
   const submeterForm = (e) => {
     e.preventDefault();
-    console.log(data + texto)
-  }
+    const dados = {
+      data: data,
+      texto: texto,
+    };
+    postRelatos(dados);
+  };
 
   return (
     <div>
