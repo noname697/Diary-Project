@@ -15,15 +15,16 @@
   flex-wrap: wrap;
 }
 
-.data {
+.dataA {
   font-size: 2rem;
   text-align: left;
   color: #2685BF;
+  margin: 0;
 }
 
 .botoes {
   display: flex;
-  gap: 10px;
+  gap: 2rem;
   margin-top: 10px;
 }
 

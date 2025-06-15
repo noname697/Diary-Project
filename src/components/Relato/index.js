@@ -1,6 +1,6 @@
 import "./Relato.css";
 
-const Relato = ({ id, dia, mes, previa }) => {
+const Relato = ({ id, dia, mes, previa,  }) => {
   return (
     <div key={id} className="relato">
       <div className="data">

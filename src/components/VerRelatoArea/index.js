@@ -1,13 +1,18 @@
 import "./VerRelatoArea.css";
 import { MdDelete, MdEdit } from "react-icons/md";
 
-const VerRelatoArea = ({ color, size, data }) => {
-
+const VerRelatoArea = ({ color, size, data, texto }) => {
+  let dataFormatada = new Date(data);
+  dataFormatada = dataFormatada.toLocaleDateString("pt-BR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 
   return (
     <div className="verRelatoContainer">
       <div className="topo">
-        <h1 className="data">{data}</h1>
+        <h1 className="dataA">{dataFormatada}</h1>
         <div className="botoes">
           <MdEdit className="button" size={size} color={color} />
           <MdDelete className="button" size={size} color={color} />
@@ -15,13 +20,7 @@ const VerRelatoArea = ({ color, size, data }) => {
       </div>
 
       <div className="verRelato">
-        <p>
-          Hoje foi um daqueles dias em que tudo parecia dar errado, mas no fim
-          percebi que cada desafio trouxe um aprendizado importante. Caminhei
-          pela rua sentindo o vento no rosto, e apesar das dificuldades, senti
-          gratidão por estar vivo. Escrever me ajuda a entender melhor as
-          emoções e valorizar os detalhes do cotidiano.
-        </p>
+        <p>{texto}</p>
       </div>
     </div>
   );

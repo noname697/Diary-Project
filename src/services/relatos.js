@@ -17,7 +17,7 @@ async function postRelatos(dados) {
 async function getRelatoEspecifico(id) {
   const response = await axios.get(`http://localhost:8000/${id}`)
 
-  console.log(response.data)
+  return response.data
 }
 
 export { getRelatos, postRelatos, getRelatoEspecifico };
