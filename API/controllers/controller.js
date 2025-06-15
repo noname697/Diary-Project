@@ -35,7 +35,17 @@ class Controller {
       const id = req.params.id;
       const dados = req.body;
       const relatoAlterado = await Service.putRelato(id, dados);
-      res.status(201).json(relatoAlterado)
+      res.status(201).json(relatoAlterado);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+
+  static async deletaRelato(req, res) {
+    try {
+      const id = req.params.id
+      const relatoDeletado = await Service.deleteRelato(id)
+      res.status(204).json(relatoDeletado)
     } catch (error) {
       res.status(500).json({ message: error.message });
     }

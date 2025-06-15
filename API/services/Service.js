@@ -23,6 +23,14 @@ class Service {
       }
     );
   }
+
+  static async deleteRelato(id) {
+    return Relato.destroy({
+      where: {
+        id: id,
+      },
+    });
+  }
 }
 
 module.exports = Service;

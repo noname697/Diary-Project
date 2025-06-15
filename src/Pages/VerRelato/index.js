@@ -28,7 +28,7 @@ const VerRelato = () => {
 
   const apagaRelato = async (e) => {
     e.preventDefault();
-    await deleteRelato(id)
+    await deleteRelato(relato.id)
     navigate("/");
   };
 
