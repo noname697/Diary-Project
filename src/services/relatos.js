@@ -9,7 +9,7 @@ async function getRelatos() {
 }
 
 async function postRelatos(dados) {
-  const response = await axios.post("https://localhost:8000/", dados);
+  const response = await axios.post("http://localhost:8000/", dados);
 
   console.log(response.data)
 }

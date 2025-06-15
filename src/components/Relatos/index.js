@@ -33,7 +33,7 @@ const Relatos = () => {
           return (
             <div key={relato.id} className="relato">
               <div className="data">
-                <div>
+                <div className="diaemes">
                   <h1>{dia}</h1>
                   <p>{mes}</p>
                 </div>
