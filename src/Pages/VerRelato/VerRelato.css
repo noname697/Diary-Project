@@ -1,3 +1,4 @@
-.verRelatoContainerA{
-    padding: 32px;
+.verRelatoContainerA {
+    padding   : 32px;
+    min-height: 78.44vh;
 }

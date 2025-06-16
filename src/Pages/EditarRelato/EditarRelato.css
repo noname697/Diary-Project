@@ -1,3 +1,4 @@
-.editarRelatoContainer{
-    padding: 32px;
+.editarRelatoContainer {
+    padding   : 32px;
+    min-height: 78.44vh;
 }

@@ -94,11 +94,15 @@ h1 {
 	font-size  : 50px;
 }
 
-body {
+html, body {
+	height: 100%;
 	font-family: "M PLUS Rounded 1c", sans-serif;
+	min-height: 100vh;
 }
 
 * {
+	margin: 0;
+	padding: 0;
 	box-sizing: border-box;
 }
 

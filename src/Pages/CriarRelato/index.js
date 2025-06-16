@@ -24,14 +24,21 @@ const CriarRelato = () => {
   };
 
   return (
-    <div>
-      <Titulo posicaoIcone="left" texto="CriarRelato" Icone={IoMdArrowBack} size={25} to="/"/>
+    <div className="container">
+      <Titulo
+        posicaoIcone="left"
+        texto="CriarRelato"
+        Icone={IoMdArrowBack}
+        size={25}
+        to="/"
+      />
       <section className="sessao">
         <Formulario
           tipo="Date"
           placeholder="Escreva seu relato completo aqui..."
           defineData={(e) => setData(e.target.value)}
           defineTexto={(e) => setTexto(e.target.value)}
+          valueTexto={texto}
           submeterForm={submeterForm}
         />
       </section>

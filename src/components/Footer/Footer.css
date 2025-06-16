@@ -5,7 +5,4 @@ footer {
     padding         : 32px;
     background-color: #BBE8F2;
     font-family     : 'Poppins';
-    position        : fixed;
-    bottom          : 0;
-    width           : 100%;
 }
