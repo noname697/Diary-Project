@@ -51,7 +51,11 @@ const Relatos = () => {
             .map((relato) => {
               const data = new Date(relato.data);
               const dia = String(data.getDate()).padStart(2, "0");
-              const mes = data.toLocaleString("pt-BR", { month: "long" });
+              const diaSemana = data.toLocaleString("pt-BR", {
+                weekday: "short",
+              });
+              const dataCriada = new Date(relato.createdAt);
+              const hora = `${dataCriada.getHours()} : ${dataCriada.getMinutes()}`;
 
               const textoLimpo = relato.texto.replace(/\s+/g, " ").trim();
               const previa =
@@ -60,8 +64,18 @@ const Relatos = () => {
                   : textoLimpo;
 
               return (
-                <Link key={relato.id} className="link" to={`/verRelato/${relato.id}`}>
-                  <Relato id={relato.id} dia={dia} mes={mes} previa={previa} />
+                <Link
+                  key={relato.id}
+                  className="link"
+                  to={`/verRelato/${relato.id}`}
+                >
+                  <Relato
+                    id={relato.id}
+                    dia={dia}
+                    mes={diaSemana}
+                    previa={previa}
+                    hora={hora}
+                  />
                 </Link>
               );
             })

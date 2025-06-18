@@ -1,15 +1,21 @@
 header {
-    background-color: #BBE8F2;
-    padding         : 20px;
+  background-color: #BBE8F2;
+  padding         : 20px;
 }
 
 .linkHeader {
-    display        : flex;
-    justify-content: center;
-    align-items    : center;
-    gap            : 2rem;
-    text-decoration: none;
-    color          : #2685BF;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  gap            : 2rem;
+  text-decoration: none;
+  color          : #2685BF;
+}
+
+.linkHeaderContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .divLista {
@@ -29,3 +35,12 @@ header {
     font-weight: 400;
 }
 
+@media (max-width: 600px) {
+  .divLista {
+    padding: 22px;
+  }
+
+  .lista {
+    height: 40px;
+  }
+}

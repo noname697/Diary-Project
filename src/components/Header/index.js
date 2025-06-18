@@ -21,7 +21,7 @@ const Header = () => {
           ))}
         </nav>
       </div>
-      <div>
+      <div className="linkHeaderContainer">
         <Link to="/" className="linkHeader">
           <FaBookOpen size={50} />
           <h1>Diary</h1>
