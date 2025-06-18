@@ -1,0 +1,27 @@
+.link-ativo {
+    text-decoration : none;
+    background-color: #2685BF;
+    color           : #fff;
+}
+
+.item-lista {
+    padding        : 8px 50px;
+    border-right   : 2px solid #2685BF;
+    text-decoration: none;
+}
+
+.item-lista-normal {
+    padding        : 8px 50px;
+    border-right   : 2px solid #2685BF;
+    text-decoration: none;
+    color          : #2685BF;
+}
+
+.item-lista:first-child {
+    border-radius: 25px 0px 0px 25px;
+}
+
+.item-lista:last-child {
+    border-right : none;
+    border-radius: 0px 25px 25px 0px;
+}
