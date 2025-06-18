@@ -26,7 +26,7 @@ const Relatos = () => {
     } else if (largura > 600) {
       setLimiteCaracteres(100);
     } else {
-      setLimiteCaracteres(60);
+      setLimiteCaracteres(30);
     }
   };
 

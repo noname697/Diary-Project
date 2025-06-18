@@ -11,7 +11,7 @@ h2 {
 }
 
 .relatos {
-    margin        : 50px;
+    margin        : 32px 0px;
     display       : flex;
     flex-direction: column;
     gap           : 32px;

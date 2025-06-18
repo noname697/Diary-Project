@@ -1,0 +1,10 @@
+.div-icone {
+    display   : flex;
+    align-self: flex-start;
+
+}
+
+.icone-fav:hover {
+    color     : #2685bf;
+    transition: .2s;
+}
