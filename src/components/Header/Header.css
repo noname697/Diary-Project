@@ -15,7 +15,7 @@ header {
 .divLista {
     display        : flex;
     justify-content: center;
-    padding        : 20px;
+    padding        : 40px;
 }
 
 .lista {
@@ -25,7 +25,7 @@ header {
     margin       : 0;
     border       : 2px solid #2685BF;
     width        : fit-content;
-    border-radius: 25px;
+    border-radius: 10px;
     font-weight: 400;
 }
 

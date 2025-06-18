@@ -18,10 +18,10 @@
 }
 
 .item-lista:first-child {
-    border-radius: 25px 0px 0px 25px;
+    border-radius: 7px 0px 0px 7px;
 }
 
 .item-lista:last-child {
     border-right : none;
-    border-radius: 0px 25px 25px 0px;
+    border-radius: 0px 7px 7px 0px;
 }
