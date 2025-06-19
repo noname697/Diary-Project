@@ -11,24 +11,36 @@ async function getRelatos() {
 async function postRelatos(dados) {
   const response = await axios.post("http://localhost:8000/", dados);
 
-  console.log(response.data)
+  console.log(response.data);
 }
 
 async function getRelatoEspecifico(id) {
-  const response = await axios.get(`http://localhost:8000/${id}`)
+  const response = await axios.get(`http://localhost:8000/${id}`);
 
-  return response.data
+  return response.data;
 }
 
-async function putRelato(id, dados){
-  const response = await axios.put(`http://localhost:8000/${id}`, dados)
+async function putRelato(id, dados) {
+  const response = await axios.put(`http://localhost:8000/${id}`, dados);
 
-  console.log(response.data)
+  console.log(response.data);
 }
 
-async function deleteRelato(id){
-  const response = await axios.delete(`http://localhost:8000/${id}`)
-  console.log(response.data)
+async function deleteRelato(id) {
+  const response = await axios.delete(`http://localhost:8000/${id}`);
+  console.log(response.data);
 }
 
-export { getRelatos, postRelatos, getRelatoEspecifico, putRelato, deleteRelato };
+async function postFavorito(id) {
+  const response = await axios.put(`http://localhost:8000/fav/${id}`);
+  console.log(response.data);
+}
+
+export {
+  getRelatos,
+  postRelatos,
+  getRelatoEspecifico,
+  putRelato,
+  deleteRelato,
+  postFavorito,
+};

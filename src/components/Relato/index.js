@@ -1,7 +1,13 @@
-import Favorito from "../Favorito";
 import "./Relato.css";
+import Favorito from "../Favorito";
+import { postFavorito } from "../../services/relatos";
 
 const Relato = ({ id, dia, mes, previa, hora }) => {
+  const mudaFavorito = async (e) => {
+    e.preventDefault();
+    await postFavorito(id);
+  };
+
   return (
     <div key={id} className="relato">
       <div className="data">
@@ -14,7 +20,7 @@ const Relato = ({ id, dia, mes, previa, hora }) => {
           <p className="previa">{previa}</p>
         </div>
       </div>
-      <Favorito />
+      <Favorito mudaFavorito={(e) => mudaFavorito(e)} />
     </div>
   );
 };

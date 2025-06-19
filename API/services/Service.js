@@ -31,6 +31,12 @@ class Service {
       },
     });
   }
+
+  static async putFav(id, dado) {
+    await Relato.update({ favorito: dado }, { where: { id: id } });
+
+    return Relato.findByPk(id);
+  }
 }
 
 module.exports = Service;

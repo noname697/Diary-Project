@@ -12,6 +12,7 @@ app.get("/", (req, res) => Controller.pegaTodos(req, res));
 app.get("/:id", (req, res) => Controller.pegaUm(req, res));
 app.post("/", (req, res) => Controller.postaRelato(req, res));
 app.put("/:id", (req, res) => Controller.editaRelato(req, res));
+app.put("/fav/:id", (req, res) => Controller.mudaFavorito(req, res))
 app.delete("/:id", (req, res) => Controller.deletaRelato(req, res));
 
 app.listen(PORT, () => {

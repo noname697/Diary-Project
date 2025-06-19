@@ -43,9 +43,25 @@ class Controller {
 
   static async deletaRelato(req, res) {
     try {
-      const id = req.params.id
-      const relatoDeletado = await Service.deleteRelato(id)
-      res.status(204).json(relatoDeletado)
+      const id = req.params.id;
+      const relatoDeletado = await Service.deleteRelato(id);
+      res.status(204).json(relatoDeletado);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+
+  static async mudaFavorito(req, res) {
+    try {
+      const id = req.params.id;
+      const relato = await Service.pegaEspecifico(id);
+      const relatoJSON = relato.toJSON();
+
+      const novoValor = !relatoJSON.favorito;
+
+      const relatoAtualizado = await Service.putFav(id, novoValor);
+
+      res.status(200).json(relatoAtualizado);
     } catch (error) {
       res.status(500).json({ message: error.message });
     }

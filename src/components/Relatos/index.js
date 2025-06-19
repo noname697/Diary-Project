@@ -75,7 +75,8 @@ const Relatos = () => {
                     mes={diaSemana}
                     previa={previa}
                     hora={hora}
-                  />
+                  >
+                  </Relato>
                 </Link>
               );
             })
