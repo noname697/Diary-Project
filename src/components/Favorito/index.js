@@ -1,22 +1,24 @@
 import "./Favorito.css";
-import { useState } from "react";
-import { FaBookmark, FaRegBookmark } from "react-icons/fa6";
 
-const Favorito = ({mudaFavorito}) => {
-  const [visivel, setVisivel] = useState(false);
-
+const Favorito = ({ mudaFavorito }) => {
   return (
     <div className="div-icone">
-      {visivel === false ? (
-        <FaRegBookmark size={20} onMouseEnter={() => setVisivel(true)} />
-      ) : (
-        <FaBookmark
-          size={20}
-          className="icone-fav"
-          onMouseLeave={() => setVisivel(false)}
-          onClick={mudaFavorito}
-        />
-      )}
+      <button
+        className="bookmark"
+        aria-label="Favoritar"
+        onClick={mudaFavorito}
+      >
+        <svg
+          className="icone-fav bookmark-icon"
+          width="30"
+          height="30"
+          fill="none"
+          stroke="#2685bf"
+          strokeWidth="2"
+        >
+          <path d="M6 4h12v16l-6-4-6 4V4z" />
+        </svg>
+      </button>
     </div>
   );
 };

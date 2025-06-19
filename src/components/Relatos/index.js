@@ -55,7 +55,13 @@ const Relatos = () => {
                 weekday: "short",
               });
               const dataCriada = new Date(relato.createdAt);
-              const hora = `${dataCriada.getHours()} : ${dataCriada.getMinutes()}`;
+              const hora = `${dataCriada
+                .getHours()
+                .toString()
+                .padStart(2, "0")} : ${dataCriada
+                .getUTCMinutes()
+                .toString()
+                .padStart(2, "0")}`;
 
               const textoLimpo = relato.texto.replace(/\s+/g, " ").trim();
               const previa =
@@ -75,8 +81,7 @@ const Relatos = () => {
                     mes={diaSemana}
                     previa={previa}
                     hora={hora}
-                  >
-                  </Relato>
+                  ></Relato>
                 </Link>
               );
             })
