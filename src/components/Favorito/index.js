@@ -1,6 +1,8 @@
 import "./Favorito.css";
 
-const Favorito = ({ mudaFavorito }) => {
+const Favorito = ({ mudaFavorito, ehFavorito }) => {
+  const fillColor = ehFavorito ? "#2685bf" : "transparent";
+
   return (
     <div className="div-icone">
       <button
@@ -12,11 +14,10 @@ const Favorito = ({ mudaFavorito }) => {
           className="icone-fav bookmark-icon"
           width="30"
           height="30"
-          fill="none"
           stroke="#2685bf"
           strokeWidth="2"
         >
-          <path d="M6 4h12v16l-6-4-6 4V4z" />
+          <path d="M6 4h12v16l-6-4-6 4V4z" fill={fillColor} />
         </svg>
       </button>
     </div>

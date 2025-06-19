@@ -5,10 +5,24 @@ import { MdAddCircle } from "react-icons/md";
 import { Link } from "react-router";
 import Relato from "../Relato/index.js";
 import Titulo from "../Titulo/index.js";
+import { postFavorito } from "../../services/relatos";
 
 const Relatos = () => {
   const [listaRelatos, setListaRelatos] = useState([]);
   const [limiteCaracteres, setLimiteCaracteres] = useState(100);
+
+  const mudaFavorito = async (id) => {
+    await postFavorito(id); 
+
+
+    setListaRelatos((prev) =>
+      prev.map((relato) =>
+        relato.id === id
+          ? { ...relato, favorito: !relato.favorito } 
+          : relato
+      )
+    );
+  };
 
   useEffect(() => {
     fetchRelatos();
@@ -76,11 +90,13 @@ const Relatos = () => {
                   to={`/verRelato/${relato.id}`}
                 >
                   <Relato
+                    ehFavorito={relato.favorito}
                     id={relato.id}
                     dia={dia}
                     mes={diaSemana}
                     previa={previa}
                     hora={hora}
+                    mudaFavorito={() => mudaFavorito(relato.id)}
                   ></Relato>
                 </Link>
               );
