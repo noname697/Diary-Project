@@ -32,7 +32,7 @@ async function deleteRelato(id) {
 }
 
 async function postFavorito(id) {
-  const response = await axios.put(`http://localhost:8000/fav/${id}`);
+  const response = await axios.put(`http://localhost:8000/favorito/${id}`);
   console.log(response.data);
 }
 
