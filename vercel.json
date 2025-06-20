@@ -1,0 +1,36 @@
+{
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/API/$1" }],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    },
+    {
+      "src": "API/app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/favoritos",
+      "dest": "/API/app.js"
+    },
+    {
+      "src": "/api/",
+      "dest": "/API/app.js"
+    },
+    {
+      "src": "/api/:id",
+      "dest": "/API/app.js"
+    },
+    {
+      "src": "/api/favorito/:id",
+      "dest": "/API/app.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
