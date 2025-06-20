@@ -36,6 +36,11 @@ async function postFavorito(id) {
   console.log(response.data);
 }
 
+async function getFavoritos() {
+  const response = await axios.get("http://localhost:8000/favoritos");
+  return response.data;
+}
+
 export {
   getRelatos,
   postRelatos,
@@ -43,4 +48,5 @@ export {
   putRelato,
   deleteRelato,
   postFavorito,
+  getFavoritos,
 };

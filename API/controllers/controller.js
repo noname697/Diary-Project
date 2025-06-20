@@ -66,6 +66,15 @@ class Controller {
       res.status(500).json({ message: error.message });
     }
   }
+
+  static async pegaFavoritos(req, res) {
+    try {
+      const listaDeRelatos = await Service.getFavoritos();
+      return res.status(200).json(listaDeRelatos);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
 }
 
 module.exports = Controller;

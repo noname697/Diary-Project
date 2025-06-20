@@ -3,6 +3,7 @@ import styled from "styled-components";
 import "./Home.css";
 import { useEffect, useRef, useState } from "react";
 import { getRelatos } from "../../services/relatos";
+import { MdAddCircle } from "react-icons/md";
 
 const Background = styled.div`
   width: 100%;
@@ -47,6 +48,11 @@ const Home = () => {
       <Background style={{ height: `${altura}px` }} />
       <Opacity style={{ height: `${altura}px` }} />
       <Relatos
+        texto="Relatos"
+        Icone={MdAddCircle}
+        size={30}
+        to="/criarRelato"
+        posicaoIcone="right"
         ref={componenteReferencia}
         listaRelatos={listaRelatos}
         setListaRelatos={setListaRelatos}

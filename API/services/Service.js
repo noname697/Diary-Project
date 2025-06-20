@@ -37,6 +37,14 @@ class Service {
 
     return Relato.findByPk(id);
   }
+
+  static async getFavoritos() {
+    return await Relato.findAll({
+      where: {
+        favorito: true,
+      },
+    });
+  }
 }
 
 module.exports = Service;
