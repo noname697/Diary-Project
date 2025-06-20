@@ -1,36 +1,35 @@
-import { useEffect, useState } from "react";
-import { getRelatos } from "../../services/relatos.js";
+import { forwardRef, useEffect, useState } from "react";
+import { getRelatos, postFavorito } from "../../services/relatos.js";
 import "./Relatos.css";
 import { MdAddCircle } from "react-icons/md";
 import { Link } from "react-router";
 import Relato from "../Relato/index.js";
 import Titulo from "../Titulo/index.js";
-import { postFavorito } from "../../services/relatos";
 
-const Relatos = () => {
-  const [listaRelatos, setListaRelatos] = useState([]);
+const Relatos = forwardRef(({ listaRelatos, setListaRelatos }, ref) => {
   const [limiteCaracteres, setLimiteCaracteres] = useState(100);
 
   const mudaFavorito = async (id) => {
-    await postFavorito(id); 
-
-
+    await postFavorito(id);
     setListaRelatos((prev) =>
       prev.map((relato) =>
-        relato.id === id
-          ? { ...relato, favorito: !relato.favorito } 
-          : relato
+        relato.id === id ? { ...relato, favorito: !relato.favorito } : relato
       )
     );
   };
 
   useEffect(() => {
+    const fetchRelatos = async () => {
+      const relatos = await getRelatos();
+      setListaRelatos(relatos);
+    };
+
     fetchRelatos();
     definirLimite();
 
     window.addEventListener("resize", definirLimite);
     return () => window.removeEventListener("resize", definirLimite);
-  }, []);
+  }, [setListaRelatos]);
 
   const definirLimite = () => {
     const largura = window.innerWidth;
@@ -44,12 +43,8 @@ const Relatos = () => {
     }
   };
 
-  const fetchRelatos = async () => {
-    setListaRelatos(await getRelatos());
-  };
-
   return (
-    <section>
+    <section ref={ref}>
       <Titulo
         posicaoIcone="right"
         texto="Relatos"
@@ -97,7 +92,7 @@ const Relatos = () => {
                     previa={previa}
                     hora={hora}
                     mudaFavorito={() => mudaFavorito(relato.id)}
-                  ></Relato>
+                  />
                 </Link>
               );
             })
@@ -107,6 +102,6 @@ const Relatos = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Relatos;

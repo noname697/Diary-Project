@@ -1,31 +1,17 @@
 .div-icone {
-    display   : flex;
-    align-self: flex-start;
+  display   : flex;
+  align-self: flex-start;
 
-}
-
-.icone-fav:hover {
-    color     : #2685bf;
-    transition: .2s;
 }
 
 .bookmark {
-  background: transparent;
-  border: 2px solid transparent;
-  border-radius: 6px;
-  padding: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, fill 0.3s ease;
-  display: inline-flex;
-  align-items: center;
+  background     : transparent;
+  border         : 2px solid transparent;
+  border-radius  : 6px;
+  padding        : 6px;
+  cursor         : pointer;
+  transition     : background-color 0.3s ease, fill 0.3s ease;
+  display        : inline-flex;
+  align-items    : center;
   justify-content: center;
-}
-
-.bookmark-icon {
-  fill: transparent;
-  transition: fill 0.3s ease;
-}
-
-.bookmark:hover .bookmark-icon {
-  fill: #2685bf;
 }

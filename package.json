@@ -20,6 +20,7 @@
     "sequelize": "^6.37.7",
     "sequelize-cli": "^6.6.3",
     "sqlite3": "^5.1.7",
+    "styled-components": "^6.1.19",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
