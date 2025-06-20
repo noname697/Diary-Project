@@ -1,5 +1,5 @@
 import { forwardRef, useEffect, useState } from "react";
-import { getRelatos, postFavorito } from "../../services/relatos.js";
+import { postFavorito } from "../../services/relatos.js";
 import "./Relatos.css";
 import { MdAddCircle } from "react-icons/md";
 import { Link } from "react-router";
@@ -7,7 +7,11 @@ import Relato from "../Relato/index.js";
 import Titulo from "../Titulo/index.js";
 
 const Relatos = forwardRef(({ listaRelatos, setListaRelatos }, ref) => {
-  const [limiteCaracteres, setLimiteCaracteres] = useState(100);
+  const [limiteCaracteres, setLimiteCaracteres] = useState(150);
+
+  useEffect(() => {
+    definirLimite();
+  }, []);
 
   const mudaFavorito = async (id) => {
     await postFavorito(id);
@@ -17,19 +21,6 @@ const Relatos = forwardRef(({ listaRelatos, setListaRelatos }, ref) => {
       )
     );
   };
-
-  useEffect(() => {
-    const fetchRelatos = async () => {
-      const relatos = await getRelatos();
-      setListaRelatos(relatos);
-    };
-
-    fetchRelatos();
-    definirLimite();
-
-    window.addEventListener("resize", definirLimite);
-    return () => window.removeEventListener("resize", definirLimite);
-  }, [setListaRelatos]);
 
   const definirLimite = () => {
     const largura = window.innerWidth;
@@ -42,7 +33,6 @@ const Relatos = forwardRef(({ listaRelatos, setListaRelatos }, ref) => {
       setLimiteCaracteres(30);
     }
   };
-
   return (
     <section ref={ref}>
       <Titulo

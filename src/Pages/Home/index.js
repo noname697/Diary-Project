@@ -2,6 +2,7 @@ import Relatos from "../../components/Relatos";
 import styled from "styled-components";
 import "./Home.css";
 import { useEffect, useRef, useState } from "react";
+import { getRelatos } from "../../services/relatos";
 
 const Background = styled.div`
   width: 100%;
@@ -27,10 +28,20 @@ const Home = () => {
   const [altura, setAltura] = useState(0);
 
   useEffect(() => {
+    const fetchRelatos = async () => {
+      const relatos = await getRelatos();
+      setListaRelatos(relatos);
+    };
+
+    fetchRelatos();
+  }, []);
+
+  useEffect(() => {
     if (componenteReferencia.current) {
       setAltura(componenteReferencia.current.offsetHeight);
     }
   }, [listaRelatos]);
+
   return (
     <div className="App">
       <Background style={{ height: `${altura}px` }} />

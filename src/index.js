@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import VerRelato from "./Pages/VerRelato";
 import EditarRelato from "./Pages/EditarRelato";
+import Favoritos from "./Pages/Favoritos";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,10 +16,11 @@ root.render(
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="/criarrelato" element={<CriarRelato />} />
         <Route path="/verRelato/:id" element={<VerRelato />} />
         <Route path="/editarRelato/:id" element={<EditarRelato />} />
+        <Route path="/favoritos" element={<Favoritos />} />
       </Routes>
       <Footer />
     </BrowserRouter>
