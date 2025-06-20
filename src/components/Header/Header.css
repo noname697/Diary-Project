@@ -49,3 +49,15 @@ h1{
     height: 40px;
   }
 }
+
+@media (max-width: 650px) {
+    .cabecalho h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 450px) {
+    .cabecalho h2 {
+        font-size: 18px;
+    }
+}

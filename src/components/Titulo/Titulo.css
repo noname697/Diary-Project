@@ -4,11 +4,11 @@
 }
 
 .cabecalho h2 {
-    position     : absolute;
-    left         : 50%;
-    transform    : translateX(-50%);
-    font-size    : 32px;
-    margin       : 0;
+    position : absolute;
+    left     : 50%;
+    transform: translateX(-50%);
+    font-size: 32px;
+    margin   : 0;
 }
 
 .icone {
@@ -17,4 +17,17 @@
     top      : 50%;
     transform: translateY(-50%);
     cursor   : pointer;
+}
+
+
+@media (max-width: 650px) {
+    .cabecalho h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 450px) {
+    .cabecalho h2 {
+        font-size: 18px;
+    }
 }

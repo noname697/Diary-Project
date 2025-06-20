@@ -26,5 +26,12 @@
 @media (max-width: 600px) {
     .item-lista {
         padding: 8px 25px;
+        font-size: 16px;
+    }
+}
+@media (max-width: 420px) {
+    .item-lista {
+        padding: 8px 25px;
+        font-size: 12px;
     }
 }

@@ -40,12 +40,17 @@ const Favoritos = () => {
     if (componenteReferencia.current) {
       setAltura(componenteReferencia.current.offsetHeight);
     }
+    const fetchRelatosFavoritos = async () => {
+      const relatosFavoritos = await getFavoritos();
+      setListaRelatos(relatosFavoritos);
+    };
+    fetchRelatosFavoritos();
   }, [listaRelatos]);
 
   return (
     <div className="favoritosContainer">
-      <Background style={{ height: `${altura}px` }} />
-      <Opacity style={{ height: `${altura}px` }} />
+      <Background style={{ height: `${altura}px`, minHeight: "70.6vh" }} />
+      <Opacity style={{ height: `${altura}px`, minHeight: "70.6vh" }} />
       <Relatos
         ref={componenteReferencia}
         texto="Relatos Favoritos"

@@ -27,7 +27,7 @@ const CriarRelato = () => {
     <div className="container">
       <Titulo
         posicaoIcone="left"
-        texto="CriarRelato"
+        texto="Criar Relato"
         Icone={IoMdArrowBack}
         size={25}
         to="/"
