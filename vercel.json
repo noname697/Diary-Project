@@ -4,13 +4,13 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": { "distDir": "build" }
+    },
+    {
+      "src": "API/app.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["API/controllers/**"] }
     }
   ],
-  "functions": {
-    "API/app.js": {
-      "runtime": "@vercel/node"
-    }
-  },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/API/app.js" },
     { "source": "/(.*)", "destination": "/index.html" }
