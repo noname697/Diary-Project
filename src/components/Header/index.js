@@ -6,8 +6,8 @@ import MenuLink from "../MenuLink";
 const Header = () => {
   const lista = [
     { texto: "Relatos", path: "/" },
-    { texto: "Eventos", path: "/verRelato" },
-    { texto: "Favoritos", path: "/criarRelato" },
+    { texto: "Criar Relato", path: "/criarRelato" },
+    { texto: "Favoritos", path: "/favoritos" },
   ];
 
   return (
