@@ -1,8 +1,5 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" },
-    { "source": "/api/(.*)", "destination": "/API/$1" }
-  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "builds": [
     {
       "src": "package.json",
@@ -12,6 +9,12 @@
     {
       "src": "API/app.js",
       "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/API/app.js"
     }
   ]
 }
