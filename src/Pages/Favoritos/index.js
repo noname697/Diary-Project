@@ -28,24 +28,19 @@ const Favoritos = () => {
   const componenteReferencia = useRef(null);
   const [altura, setAltura] = useState(0);
 
-  useEffect(() => {
-    const fetchRelatosFavoritos = async () => {
-      const relatosFavoritos = await getFavoritos();
-      setListaRelatos(relatosFavoritos);
-    };
-    fetchRelatosFavoritos();
-  }, []);
+useEffect(() => {
+  const fetchRelatosFavoritos = async () => {
+    const relatosFavoritos = await getFavoritos();
+    setListaRelatos(relatosFavoritos);
+  };
+  fetchRelatosFavoritos();
+}, []);
 
-  useEffect(() => {
-    if (componenteReferencia.current) {
-      setAltura(componenteReferencia.current.offsetHeight);
-    }
-    const fetchRelatosFavoritos = async () => {
-      const relatosFavoritos = await getFavoritos();
-      setListaRelatos(relatosFavoritos);
-    };
-    fetchRelatosFavoritos();
-  }, [listaRelatos]);
+ useEffect(() => {
+  if (componenteReferencia.current) {
+    setAltura(componenteReferencia.current.offsetHeight);
+  }
+}, [listaRelatos]);
 
   return (
     <div className="favoritosContainer">
