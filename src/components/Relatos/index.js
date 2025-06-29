@@ -1,19 +1,36 @@
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, useEffect, useReducer } from "react";
 import { postFavorito } from "../../services/relatos.js";
 import "./Relatos.css";
 import { Link } from "react-router";
 import Relato from "../Relato/index.js";
 import Titulo from "../Titulo/index.js";
+import reducer, { UPDATE_SCREEN_WIDTH } from "./reducer.js";
 
 const Relatos = forwardRef(
   (
     { listaRelatos, setListaRelatos, texto, posicaoIcone, Icone, to, size },
     ref
   ) => {
-    const [limiteCaracteres, setLimiteCaracteres] = useState(150);
+    const initialState = {
+      larguraDaTela: window.innerWidth,
+      limiteDeCaracteres:
+        window.innerWidth > 1024 ? 150 : window.innerWidth > 600 ? 100 : 30,
+    };
+    const [estado, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
-      definirLimite();
+      const handleResize = () => {
+        dispatch({
+          tipo: UPDATE_SCREEN_WIDTH,
+          larguraDaTela: window.innerWidth,
+        });
+      };
+
+      handleResize(); // Chamar handleResize quando o componente é montado
+
+      // Adicionar um listener de evento resize para atualizar o estado quando a janela for redimensionada
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize); // Limpar o listener quando o componente for desmontado
     }, []);
 
     const mudaFavorito = async (id) => {
@@ -25,17 +42,6 @@ const Relatos = forwardRef(
       );
     };
 
-    const definirLimite = () => {
-      const largura = window.innerWidth;
-
-      if (largura > 1024) {
-        setLimiteCaracteres(150);
-      } else if (largura > 600) {
-        setLimiteCaracteres(100);
-      } else {
-        setLimiteCaracteres(30);
-      }
-    };
     return (
       <section ref={ref}>
         <Titulo
@@ -45,7 +51,6 @@ const Relatos = forwardRef(
           size={size}
           to={to}
         />
-
         <div className="relatos">
           {listaRelatos.length >= 1 ? (
             listaRelatos
@@ -64,13 +69,11 @@ const Relatos = forwardRef(
                   .getUTCMinutes()
                   .toString()
                   .padStart(2, "0")}`;
-
                 const textoLimpo = relato.texto.replace(/\s+/g, " ").trim();
                 const previa =
-                  textoLimpo.length > limiteCaracteres
-                    ? textoLimpo.slice(0, limiteCaracteres) + "..."
+                  textoLimpo.length > estado.limiteDeCaracteres
+                    ? textoLimpo.slice(0, estado.limiteDeCaracteres) + "..."
                     : textoLimpo;
-
                 return (
                   <Link
                     key={relato.id}
