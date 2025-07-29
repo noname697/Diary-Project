@@ -1,7 +1,13 @@
 import { NavLink } from "react-router";
 import "./MenuLink.css";
+import { ReactElement } from "react";
 
-const MenuLink = ({ children, to }) => {
+interface MenuLinkProps{
+  children: ReactElement | string
+  to: string;
+}
+
+const MenuLink = ({ children, to }: MenuLinkProps) => {
   return (
     <NavLink
       className={({ isActive }) => `${isActive ? "link-ativo" : "item-lista-normal"} item-lista`}
