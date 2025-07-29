@@ -1,10 +1,28 @@
 import "./Relato.css";
 import Favorito from "../Favorito";
 
-const Relato = ({ id, dia, mes, previa, hora, ehFavorito, mudaFavorito }) => {
-  const handleClick = (e) => {
+interface RelatoProps {
+  id: string;
+  dia: string;
+  mes: string;
+  previa: string;
+  hora: string;
+  ehFavorito: boolean;
+  alterarFavorito: () => void;
+}
+
+const Relato = ({
+  id,
+  dia,
+  mes,
+  previa,
+  hora,
+  ehFavorito,
+  alterarFavorito,
+}: RelatoProps) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    mudaFavorito();
+    alterarFavorito();
   };
 
   return (
@@ -19,7 +37,7 @@ const Relato = ({ id, dia, mes, previa, hora, ehFavorito, mudaFavorito }) => {
           <p className="previa">{previa}</p>
         </div>
       </div>
-      <Favorito ehFavorito={ehFavorito} id={id} mudaFavorito={handleClick} />
+      <Favorito ehFavorito={ehFavorito} mudaFavorito={handleClick} />
     </div>
   );
 };
