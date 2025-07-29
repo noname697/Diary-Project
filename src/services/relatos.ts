@@ -20,7 +20,7 @@ async function postRelatos(dados: IRelato) {
   console.log(response.data);
 }
 
-async function getRelatoEspecifico(id: Number | string) {
+async function getRelatoEspecifico(id: string | undefined) {
   const response = await axios.get(`https://diary-api-fbaj.onrender.com/${id}`);
 
   return response.data;

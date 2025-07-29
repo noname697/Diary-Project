@@ -1,15 +1,16 @@
 import { IoMdArrowBack } from "react-icons/io";
-import Titulo from "../../components/Titulo";
-import Formulario from "../../components/Formulario";
-import { getRelatoEspecifico, putRelato } from "../../services/relatos.js";
+import Titulo from "../../components/Titulo/index";
+import Formulario from "../../components/Formulario/index";
+import { getRelatoEspecifico, putRelato } from "../../services/relatos";
 import "./EditarRelato.css";
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
+import { IRelato } from "../../shared/IRelato";
 
 const EditarRelato = () => {
   const { id } = useParams();
 
-  const [relato, setRelato] = useState({});
+  const [relato, setRelato] = useState<IRelato>({} as IRelato);
   const [data, setData] = useState("");
   const [texto, setTexto] = useState("");
 
@@ -17,8 +18,8 @@ const EditarRelato = () => {
     fetchRelato(id);
   }, [id]);
 
-  const fetchRelato = async (id) => {
-    const relatoEspecifico = await getRelatoEspecifico(id);
+  const fetchRelato = async (id: string | undefined) => {
+    const relatoEspecifico: IRelato = await getRelatoEspecifico(id);
     setRelato(relatoEspecifico);
     setTexto(relatoEspecifico.texto || "");
     setData(
@@ -30,14 +31,19 @@ const EditarRelato = () => {
 
   const navigate = useNavigate();
 
-  const submeterForm = (e) => {
+  const submeterForm = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     const dados = {
       data: data,
       texto: texto,
     };
-    putRelato(relato.id, dados);
-    navigate(`/verRelato/${id}`);
+    if (relato.id !== undefined) {
+      putRelato(relato.id, dados);
+      navigate(`/verRelato/${relato.id}`);
+    } else {
+      // Handle error: id is undefined
+      alert("Erro: ID do relato não encontrado.");
+    }
   };
 
   return (

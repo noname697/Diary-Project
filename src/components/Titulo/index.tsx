@@ -7,10 +7,10 @@ interface TituloProps{
   Icone: IconType;
   size: string | number;
   to: string;
-  posicaoIcone: string;
+  posicaoIcone?: string;
 }
 
-const Titulo = ({ texto, Icone, size, to, posicaoIcone }: TituloProps) => {
+const Titulo = ({ texto, Icone, size, to, posicaoIcone = "left" }: TituloProps) => {
   return (
     <div className="cabecalho">
       <h2>{texto}</h2>

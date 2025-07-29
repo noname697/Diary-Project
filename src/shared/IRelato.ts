@@ -1,6 +1,6 @@
 export interface IRelato {
-  id?: string | number;
-  data: Date;
+  id?: string | undefined;
+  data: Date | string;
   texto: string;
   favorito?: boolean;
   createdAt?: Date;
