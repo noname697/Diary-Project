@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import Relatos from "../../components/Relatos";
+import Relatos from "../../components/Relatos/index.tsx";
 import "./Favoritos.css";
-import { getFavoritos } from "../../services/relatos.js";
+import { getFavoritos } from "../../services/relatos.ts";
 import { IoMdArrowBack } from "react-icons/io";
 import styled from "styled-components";
+import { IRelato } from "../../shared/IRelato.ts";
 
 const Background = styled.div`
   width: 100%;
@@ -24,8 +25,8 @@ const Opacity = styled.div`
 `;
 
 const Favoritos = () => {
-  const [listaRelatos, setListaRelatos] = useState([]);
-  const componenteReferencia = useRef(null);
+  const [listaRelatos, setListaRelatos] = useState<IRelato[]>([]);
+  const componenteReferencia = useRef<HTMLDivElement>(null);
   const [altura, setAltura] = useState(0);
 
 useEffect(() => {

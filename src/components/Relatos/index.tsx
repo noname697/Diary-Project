@@ -15,7 +15,7 @@ interface RelatosProps {
   posicaoIcone: string;
   Icone: IconType;
   to: string;
-  size: string;
+  size: string | number;
 }
 
 const Relatos = forwardRef<HTMLDivElement, RelatosProps>(
