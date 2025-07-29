@@ -53,7 +53,7 @@ const Relatos = forwardRef<HTMLDivElement, RelatosProps>(
       return () => window.removeEventListener("resize", handleResize); // Limpar o listener quando o componente for desmontado
     }, []);
 
-    const mudaFavorito = async (id: number | string) => {
+    const mudaFavorito = async (id: number | string | undefined) => {
       await postFavorito(id);
       setListaRelatos((prev) =>
         prev.map((relato) =>
@@ -84,7 +84,7 @@ const Relatos = forwardRef<HTMLDivElement, RelatosProps>(
                 const diaSemana = data.toLocaleString("pt-BR", {
                   weekday: "short",
                 });
-                const dataCriada = new Date(relato.createdAt);
+                const dataCriada = new Date(relato.createdAt ?? "");
                 const hora = `${dataCriada
                   .getHours()
                   .toString()
@@ -99,7 +99,7 @@ const Relatos = forwardRef<HTMLDivElement, RelatosProps>(
                     : textoLimpo;
                 return (
                   <Link
-                    key={relato.id}
+                    key={String(relato.id ?? "")}
                     className="link"
                     to={`/verRelato/${relato.id}`}
                   >

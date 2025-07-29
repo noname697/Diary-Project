@@ -2,7 +2,7 @@ import "./Favorito.css";
 
 interface FavoritoProps {
   mudaFavorito: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  ehFavorito: boolean;
+  ehFavorito: boolean | undefined;
 }
 
 const Favorito = ({ mudaFavorito, ehFavorito }: FavoritoProps) => {

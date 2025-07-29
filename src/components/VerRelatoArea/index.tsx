@@ -7,7 +7,7 @@ interface VerRelatoAreaProps {
   size: string;
   data: string | Date;
   texto: string;
-  id: Number | string | undefined;
+  id: number | string | undefined;
   PopUp: () => void;
 }
 

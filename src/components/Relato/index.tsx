@@ -2,12 +2,12 @@ import "./Relato.css";
 import Favorito from "../Favorito";
 
 interface RelatoProps {
-  id: string | number;
+  id: string | number | undefined;
   dia: string;
   mes: string;
   previa: string;
   hora: string;
-  ehFavorito: boolean;
+  ehFavorito: boolean | undefined;
   alterarFavorito: () => void;
 }
 
@@ -26,7 +26,7 @@ const Relato = ({
   };
 
   return (
-    <div key={id} className="relato">
+    <div key={id as string | number | undefined} className="relato">
       <div className="data">
         <div className="diaemes">
           <h1>{dia}</h1>

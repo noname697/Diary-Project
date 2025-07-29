@@ -20,13 +20,13 @@ async function postRelatos(dados: IRelato) {
   console.log(response.data);
 }
 
-async function getRelatoEspecifico(id: Number | string | undefined) {
+async function getRelatoEspecifico(id: number | string | undefined) {
   const response = await axios.get(`https://diary-api-fbaj.onrender.com/${id}`);
 
   return response.data;
 }
 
-async function putRelato(id: Number | string | undefined, dados: IRelato) {
+async function putRelato(id: number | string | undefined, dados: IRelato) {
   const response = await axios.put(
     `https://diary-api-fbaj.onrender.com/${id}`,
     dados
@@ -35,7 +35,7 @@ async function putRelato(id: Number | string | undefined, dados: IRelato) {
   console.log(response.data);
 }
 
-async function deleteRelato(id: Number | string | undefined) {
+async function deleteRelato(id: number | string | undefined) {
   const response = await axios.delete(
     `https://diary-api-fbaj.onrender.com/${id}`
   );
@@ -43,7 +43,7 @@ async function deleteRelato(id: Number | string | undefined) {
   console.log(response.data);
 }
 
-async function postFavorito(id: Number | string | undefined) {
+async function postFavorito(id: number | string | undefined) {
   const response = await axios.put(
     `https://diary-api-fbaj.onrender.com/favorito/${id}`
   );

@@ -18,7 +18,7 @@ const VerRelato = () => {
     fetchRelato(id);
   }, [id]);
 
-  const fetchRelato = async (id: Number | string | undefined) => {
+  const fetchRelato = async (id: number | string | undefined) => {
     const relatoEspecifico = await getRelatoEspecifico(id);
     setRelato(relatoEspecifico);
   };
