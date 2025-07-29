@@ -1,14 +1,34 @@
-import { forwardRef, useEffect, useReducer } from "react";
-import { postFavorito } from "../../services/relatos.js";
 import "./Relatos.css";
+import { forwardRef, useEffect, useReducer } from "react";
 import { Link } from "react-router";
-import Relato from "../Relato/index.js";
-import Titulo from "../Titulo/index.js";
-import reducer, { UPDATE_SCREEN_WIDTH } from "./reducer.js";
+import { postFavorito } from "../../services/relatos.ts";
+import Relato from "../Relato/index.tsx";
+import Titulo from "../Titulo/index.tsx";
+import reducer, { UPDATE_SCREEN_WIDTH } from "./reducer.ts";
+import { IRelato } from "../../shared/IRelato.ts";
+import { IconType } from "react-icons";
 
-const Relatos = forwardRef(
+interface RelatosProps {
+  listaRelatos: IRelato[];
+  setListaRelatos: React.Dispatch<React.SetStateAction<IRelato[]>>;
+  texto: string;
+  posicaoIcone: string;
+  Icone: IconType;
+  to: string;
+  size: string;
+}
+
+const Relatos = forwardRef<HTMLDivElement, RelatosProps>(
   (
-    { listaRelatos, setListaRelatos, texto, posicaoIcone, Icone, to, size },
+    {
+      listaRelatos,
+      setListaRelatos,
+      texto,
+      posicaoIcone,
+      Icone,
+      to,
+      size,
+    }: RelatosProps,
     ref
   ) => {
     const initialState = {
@@ -33,7 +53,7 @@ const Relatos = forwardRef(
       return () => window.removeEventListener("resize", handleResize); // Limpar o listener quando o componente for desmontado
     }, []);
 
-    const mudaFavorito = async (id) => {
+    const mudaFavorito = async (id: number | string) => {
       await postFavorito(id);
       setListaRelatos((prev) =>
         prev.map((relato) =>
@@ -54,7 +74,10 @@ const Relatos = forwardRef(
         <div className="relatos">
           {listaRelatos.length >= 1 ? (
             listaRelatos
-              .sort((a, b) => new Date(b.data) - new Date(a.data))
+              .sort(
+                (a, b) =>
+                  new Date(b.data).getTime() - new Date(a.data).getTime()
+              )
               .map((relato) => {
                 const data = new Date(relato.data);
                 const dia = String(data.getDate()).padStart(2, "0");
@@ -87,7 +110,7 @@ const Relatos = forwardRef(
                       mes={diaSemana}
                       previa={previa}
                       hora={hora}
-                      mudaFavorito={() => mudaFavorito(relato.id)}
+                      alterarFavorito={() => mudaFavorito(relato.id)}
                     />
                   </Link>
                 );

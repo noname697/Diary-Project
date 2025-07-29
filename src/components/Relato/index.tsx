@@ -2,7 +2,7 @@ import "./Relato.css";
 import Favorito from "../Favorito";
 
 interface RelatoProps {
-  id: string;
+  id: string | number;
   dia: string;
   mes: string;
   previa: string;
