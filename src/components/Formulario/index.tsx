@@ -1,5 +1,15 @@
 import "./Formulario.css";
 
+interface FormularioProps{
+  tipo: string;
+  placeholder: string;
+  submeterForm: () => void
+  defineData: () => void;
+  defineTexto: () => void
+  valueTexto: string;
+  valueData: string
+}
+
 const Formulario = ({
   tipo,
   placeholder,
@@ -8,7 +18,7 @@ const Formulario = ({
   defineTexto,
   valueTexto = "",
   valueData,
-}) => {
+} : FormularioProps) => {
   return (
     <form className="formulario">
       <label htmlFor="entrada">Data</label>
