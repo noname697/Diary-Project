@@ -31,7 +31,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchRelatos = async () => {
-      const relatos = await getRelatos();
+      const relatos = await getRelatos()
       setRelatos(relatos);
     };
 

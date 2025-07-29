@@ -45,8 +45,8 @@ useEffect(() => {
 
   return (
     <div className="favoritosContainer">
-      <Background style={{ height: `${altura}px`, minHeight: "70.6vh" }} />
-      <Opacity style={{ height: `${altura}px`, minHeight: "70.6vh" }} />
+      <Background style={{ height: `${altura}px`, minHeight: "80.5vh" }} />
+      <Opacity style={{ height: `${altura}px`, minHeight: "80.5vh" }} />
       <Relatos
         ref={componenteReferencia}
         texto="Relatos Favoritos"
