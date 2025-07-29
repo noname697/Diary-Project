@@ -45,8 +45,8 @@ const Home = () => {
 
   return (
     <div className="App">
-      <Background style={{ height: `${altura}px`, minHeight: "70.6vh" }} />
-      <Opacity style={{ height: `${altura}px`, minHeight: "70.6vh" }} />
+      <Background style={{ height: `${altura}px`, minHeight: "80.5vh" }} />
+      <Opacity style={{ height: `${altura}px`, minHeight: "80.5vh" }} />
       <Relatos
         texto="Relatos"
         Icone={MdAddCircle}

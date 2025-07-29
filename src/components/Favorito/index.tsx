@@ -1,6 +1,11 @@
 import "./Favorito.css";
 
-const Favorito = ({ mudaFavorito, ehFavorito }) => {
+interface FavoritoProps {
+  mudaFavorito: () => void;
+  ehFavorito: boolean;
+}
+
+const Favorito = ({ mudaFavorito, ehFavorito }: FavoritoProps) => {
   const fillColor = ehFavorito ? "#2685bf" : "transparent";
 
   return (
