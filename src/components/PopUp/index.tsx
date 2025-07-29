@@ -2,7 +2,7 @@ import "./PopUp.css";
 
 interface PopUpProps {
   onClose: () => void;
-  apagaRelato: () => void;
+  apagaRelato: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const PopUp = ({ onClose, apagaRelato }: PopUpProps) => {

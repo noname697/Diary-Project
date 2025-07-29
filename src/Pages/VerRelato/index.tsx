@@ -1,23 +1,24 @@
 import { useNavigate, useParams } from "react-router";
-import Titulo from "../../components/Titulo";
-import VerRelatoArea from "../../components/VerRelatoArea";
-import { deleteRelato, getRelatoEspecifico } from "../../services/relatos.js";
+import Titulo from "../../components/Titulo/index.tsx";
+import VerRelatoArea from "../../components/VerRelatoArea/index.tsx";
+import { deleteRelato, getRelatoEspecifico } from "../../services/relatos.ts";
 import "./VerRelato.css";
 import { IoMdArrowBack } from "react-icons/io";
 import { useEffect, useState } from "react";
 import PopUp from "../../components/PopUp/index.tsx";
+import { IRelato } from "../../shared/IRelato.ts";
 
 const VerRelato = () => {
   const [mostrarConfirmacao, setMostrarConfirmacao] = useState(false);
   const { id } = useParams();
-  const [relato, setRelato] = useState({});
+  const [relato, setRelato] = useState<IRelato>({} as IRelato);
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchRelato(id);
   }, [id]);
 
-  const fetchRelato = async (id) => {
+  const fetchRelato = async (id: Number | string | undefined) => {
     const relatoEspecifico = await getRelatoEspecifico(id);
     setRelato(relatoEspecifico);
   };
@@ -26,7 +27,7 @@ const VerRelato = () => {
     setMostrarConfirmacao(true);
   };
 
-  const apagaRelato = async (e) => {
+  const apagaRelato = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     await deleteRelato(relato.id)
     navigate("/");

@@ -5,9 +5,9 @@ import { MdDelete, MdEdit } from "react-icons/md";
 interface VerRelatoAreaProps {
   color: string;
   size: string;
-  data: string;
+  data: string | Date;
   texto: string;
-  id: string | number;
+  id: Number | string | undefined;
   PopUp: () => void;
 }
 

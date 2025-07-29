@@ -1,5 +1,5 @@
 export interface IRelato {
-  id?: string | undefined;
+  id?: Number | string | undefined;
   data: Date | string;
   texto: string;
   favorito?: boolean;
