@@ -1,9 +1,10 @@
 import Relatos from "../../components/Relatos";
 import styled from "styled-components";
 import "./Home.css";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { getRelatos } from "../../services/relatos";
 import { MdAddCircle } from "react-icons/md";
+import { RelatosContext } from "../../contexts/relatos";
 
 const Background = styled.div`
   width: 100%;
@@ -24,29 +25,29 @@ const Opacity = styled.div`
 `;
 
 const Home = () => {
-  const [listaRelatos, setListaRelatos] = useState([]);
-  const componenteReferencia = useRef(null);
+  const componenteReferencia = useRef<HTMLDivElement>(null);
   const [altura, setAltura] = useState(0);
+  const {relatos, setRelatos} = useContext(RelatosContext)!;
 
   useEffect(() => {
     const fetchRelatos = async () => {
-      const relatos = await getRelatos();
-      setListaRelatos(relatos);
+      const relatos = await getRelatos()
+      setRelatos(relatos);
     };
 
     fetchRelatos();
-  }, []);
+  }, [setRelatos]);
 
   useEffect(() => {
     if (componenteReferencia.current) {
       setAltura(componenteReferencia.current.offsetHeight);
     }
-  }, [listaRelatos]);
+  }, [relatos]);
 
   return (
     <div className="App">
-      <Background style={{ height: `${altura}px`, minHeight: "70.6vh" }} />
-      <Opacity style={{ height: `${altura}px`, minHeight: "70.6vh" }} />
+      <Background style={{ height: `${altura}px`, minHeight: "80.5vh" }} />
+      <Opacity style={{ height: `${altura}px`, minHeight: "80.5vh" }} />
       <Relatos
         texto="Relatos"
         Icone={MdAddCircle}
@@ -54,8 +55,6 @@ const Home = () => {
         to="/criarRelato"
         posicaoIcone="right"
         ref={componenteReferencia}
-        listaRelatos={listaRelatos}
-        setListaRelatos={setListaRelatos}
       />
     </div>
   );

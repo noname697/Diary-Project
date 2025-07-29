@@ -1,7 +1,16 @@
 import { Link } from "react-router";
 import "./Titulo.css";
+import { IconType } from "react-icons";
 
-const Titulo = ({ texto, Icone, size, to, posicaoIcone }) => {
+interface TituloProps{
+  texto: String;
+  Icone: IconType;
+  size: string | number;
+  to: string;
+  posicaoIcone?: string;
+}
+
+const Titulo = ({ texto, Icone, size, to, posicaoIcone = "left" }: TituloProps) => {
   return (
     <div className="cabecalho">
       <h2>{texto}</h2>

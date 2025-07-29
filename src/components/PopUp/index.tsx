@@ -1,8 +1,13 @@
 import "./PopUp.css";
 
-const PopUp = ({ onClose, apagaRelato }) => {
-  const handleClickFora = (e) => {
-    if (e.target.className === "popup-overlay") {
+interface PopUpProps {
+  onClose: () => void;
+  apagaRelato: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
+
+const PopUp = ({ onClose, apagaRelato }: PopUpProps) => {
+  const handleClickFora = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if ((e.target as HTMLElement).className === "popup-overlay") {
       onClose();
     }
   };

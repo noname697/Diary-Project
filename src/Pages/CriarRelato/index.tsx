@@ -11,7 +11,7 @@ const CriarRelato = () => {
   const [texto, setTexto] = useState("");
   const navigate = useNavigate();
 
-  const submeterForm = (e) => {
+  const submeterForm = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     const dataFormatada = new Date(data);
     dataFormatada.setDate(dataFormatada.getDate() + 1);
@@ -36,10 +36,15 @@ const CriarRelato = () => {
         <Formulario
           tipo="Date"
           placeholder="Escreva seu relato completo aqui..."
-          defineData={(e) => setData(e.target.value)}
-          defineTexto={(e) => setTexto(e.target.value)}
+          defineData={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setData(e.target.value)
+          }
+          defineTexto={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+            setTexto(e.target.value)
+          }
           valueTexto={texto}
           submeterForm={submeterForm}
+          valueData=""
         />
       </section>
     </div>

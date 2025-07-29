@@ -1,5 +1,15 @@
 import "./Formulario.css";
 
+interface FormularioProps{
+  tipo: string;
+  placeholder: string;
+  submeterForm: (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  defineData: (e:React.ChangeEvent<HTMLInputElement>) => void;
+  defineTexto: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+  valueTexto: string;
+  valueData: string
+}
+
 const Formulario = ({
   tipo,
   placeholder,
@@ -8,7 +18,7 @@ const Formulario = ({
   defineTexto,
   valueTexto = "",
   valueData,
-}) => {
+} : FormularioProps) => {
   return (
     <form className="formulario">
       <label htmlFor="entrada">Data</label>

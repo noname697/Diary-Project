@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
-import Relatos from "../../components/Relatos";
+import { useContext, useEffect, useRef, useState } from "react";
+import Relatos from "../../components/Relatos/index";
 import "./Favoritos.css";
-import { getFavoritos } from "../../services/relatos.js";
+import { getFavoritos } from "../../services/relatos";
 import { IoMdArrowBack } from "react-icons/io";
 import styled from "styled-components";
+import { RelatosContext } from "../../contexts/relatos";
 
 const Background = styled.div`
   width: 100%;
@@ -24,28 +25,28 @@ const Opacity = styled.div`
 `;
 
 const Favoritos = () => {
-  const [listaRelatos, setListaRelatos] = useState([]);
-  const componenteReferencia = useRef(null);
+  const {relatos, setRelatos} = useContext(RelatosContext)!
+  const componenteReferencia = useRef<HTMLDivElement>(null);
   const [altura, setAltura] = useState(0);
 
 useEffect(() => {
   const fetchRelatosFavoritos = async () => {
     const relatosFavoritos = await getFavoritos();
-    setListaRelatos(relatosFavoritos);
+    setRelatos(relatosFavoritos);
   };
   fetchRelatosFavoritos();
-}, []);
+}, [setRelatos]);
 
  useEffect(() => {
   if (componenteReferencia.current) {
     setAltura(componenteReferencia.current.offsetHeight);
   }
-}, [listaRelatos]);
+}, [relatos]);
 
   return (
     <div className="favoritosContainer">
-      <Background style={{ height: `${altura}px`, minHeight: "70.6vh" }} />
-      <Opacity style={{ height: `${altura}px`, minHeight: "70.6vh" }} />
+      <Background style={{ height: `${altura}px`, minHeight: "80.5vh" }} />
+      <Opacity style={{ height: `${altura}px`, minHeight: "80.5vh" }} />
       <Relatos
         ref={componenteReferencia}
         texto="Relatos Favoritos"
@@ -53,8 +54,6 @@ useEffect(() => {
         size={30}
         to="/"
         posicaoIcone="left"
-        listaRelatos={listaRelatos}
-        setListaRelatos={setListaRelatos}
       />
     </div>
   );

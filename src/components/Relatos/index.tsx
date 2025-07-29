@@ -1,16 +1,33 @@
-import { forwardRef, useEffect, useReducer } from "react";
-import { postFavorito } from "../../services/relatos.js";
 import "./Relatos.css";
+import { forwardRef, useContext, useEffect, useReducer } from "react";
 import { Link } from "react-router";
-import Relato from "../Relato/index.js";
-import Titulo from "../Titulo/index.js";
-import reducer, { UPDATE_SCREEN_WIDTH } from "./reducer.js";
+import { postFavorito } from "../../services/relatos";
+import Relato from "../Relato/index";
+import Titulo from "../Titulo/index";
+import reducer, { UPDATE_SCREEN_WIDTH } from "./reducer";
+import { IconType } from "react-icons";
+import { RelatosContext } from "../../contexts/relatos";
 
-const Relatos = forwardRef(
+interface RelatosProps {
+  texto: string;
+  posicaoIcone: string;
+  Icone: IconType;
+  to: string;
+  size: string | number;
+}
+
+const Relatos = forwardRef<HTMLDivElement, RelatosProps>(
   (
-    { listaRelatos, setListaRelatos, texto, posicaoIcone, Icone, to, size },
+    {
+      texto,
+      posicaoIcone,
+      Icone,
+      to,
+      size,
+    }: RelatosProps,
     ref
   ) => {
+    const {relatos, setRelatos} = useContext(RelatosContext)!;
     const initialState = {
       larguraDaTela: window.innerWidth,
       limiteDeCaracteres:
@@ -33,9 +50,9 @@ const Relatos = forwardRef(
       return () => window.removeEventListener("resize", handleResize); // Limpar o listener quando o componente for desmontado
     }, []);
 
-    const mudaFavorito = async (id) => {
+    const mudaFavorito = async (id: number | string | undefined) => {
       await postFavorito(id);
-      setListaRelatos((prev) =>
+      setRelatos((prev) =>
         prev.map((relato) =>
           relato.id === id ? { ...relato, favorito: !relato.favorito } : relato
         )
@@ -52,16 +69,19 @@ const Relatos = forwardRef(
           to={to}
         />
         <div className="relatos">
-          {listaRelatos.length >= 1 ? (
-            listaRelatos
-              .sort((a, b) => new Date(b.data) - new Date(a.data))
+          {relatos.length >= 1 ? (
+            relatos
+              .sort(
+                (a, b) =>
+                  new Date(b.data).getTime() - new Date(a.data).getTime()
+              )
               .map((relato) => {
                 const data = new Date(relato.data);
                 const dia = String(data.getDate()).padStart(2, "0");
                 const diaSemana = data.toLocaleString("pt-BR", {
                   weekday: "short",
                 });
-                const dataCriada = new Date(relato.createdAt);
+                const dataCriada = new Date(relato.createdAt ?? "");
                 const hora = `${dataCriada
                   .getHours()
                   .toString()
@@ -76,7 +96,7 @@ const Relatos = forwardRef(
                     : textoLimpo;
                 return (
                   <Link
-                    key={relato.id}
+                    key={String(relato.id ?? "")}
                     className="link"
                     to={`/verRelato/${relato.id}`}
                   >
@@ -87,7 +107,7 @@ const Relatos = forwardRef(
                       mes={diaSemana}
                       previa={previa}
                       hora={hora}
-                      mudaFavorito={() => mudaFavorito(relato.id)}
+                      alterarFavorito={() => mudaFavorito(relato.id)}
                     />
                   </Link>
                 );
