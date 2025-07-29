@@ -1,4 +1,4 @@
-import { FaBookOpen } from "react-icons/fa6";
+import { FaBookOpen } from 'react-icons/fa';
 import "./Header.css";
 import { Link } from "react-router";
 import MenuLink from "../MenuLink";
