@@ -4,6 +4,7 @@ import "./Home.css";
 import { useEffect, useRef, useState } from "react";
 import { getRelatos } from "../../services/relatos";
 import { MdAddCircle } from "react-icons/md";
+import { IRelato } from "../../shared/IRelato";
 
 const Background = styled.div`
   width: 100%;
@@ -24,8 +25,8 @@ const Opacity = styled.div`
 `;
 
 const Home = () => {
-  const [listaRelatos, setListaRelatos] = useState([]);
-  const componenteReferencia = useRef(null);
+  const [listaRelatos, setListaRelatos] = useState<IRelato[]>([]);
+  const componenteReferencia = useRef<HTMLDivElement>(null);
   const [altura, setAltura] = useState(0);
 
   useEffect(() => {
