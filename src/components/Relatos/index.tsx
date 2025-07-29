@@ -1,16 +1,14 @@
 import "./Relatos.css";
-import { forwardRef, useEffect, useReducer } from "react";
+import { forwardRef, useContext, useEffect, useReducer } from "react";
 import { Link } from "react-router";
 import { postFavorito } from "../../services/relatos.ts";
 import Relato from "../Relato/index.tsx";
 import Titulo from "../Titulo/index.tsx";
 import reducer, { UPDATE_SCREEN_WIDTH } from "./reducer.ts";
-import { IRelato } from "../../shared/IRelato.ts";
 import { IconType } from "react-icons";
+import { RelatosContext } from "../../contexts/relatos.tsx";
 
 interface RelatosProps {
-  listaRelatos: IRelato[];
-  setListaRelatos: React.Dispatch<React.SetStateAction<IRelato[]>>;
   texto: string;
   posicaoIcone: string;
   Icone: IconType;
@@ -21,8 +19,6 @@ interface RelatosProps {
 const Relatos = forwardRef<HTMLDivElement, RelatosProps>(
   (
     {
-      listaRelatos,
-      setListaRelatos,
       texto,
       posicaoIcone,
       Icone,
@@ -31,6 +27,7 @@ const Relatos = forwardRef<HTMLDivElement, RelatosProps>(
     }: RelatosProps,
     ref
   ) => {
+    const {relatos, setRelatos} = useContext(RelatosContext)!;
     const initialState = {
       larguraDaTela: window.innerWidth,
       limiteDeCaracteres:
@@ -55,7 +52,7 @@ const Relatos = forwardRef<HTMLDivElement, RelatosProps>(
 
     const mudaFavorito = async (id: number | string | undefined) => {
       await postFavorito(id);
-      setListaRelatos((prev) =>
+      setRelatos((prev) =>
         prev.map((relato) =>
           relato.id === id ? { ...relato, favorito: !relato.favorito } : relato
         )
@@ -72,8 +69,8 @@ const Relatos = forwardRef<HTMLDivElement, RelatosProps>(
           to={to}
         />
         <div className="relatos">
-          {listaRelatos.length >= 1 ? (
-            listaRelatos
+          {relatos.length >= 1 ? (
+            relatos
               .sort(
                 (a, b) =>
                   new Date(b.data).getTime() - new Date(a.data).getTime()

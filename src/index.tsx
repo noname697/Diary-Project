@@ -9,20 +9,23 @@ import Footer from "./components/Footer";
 import VerRelato from "./Pages/VerRelato";
 import EditarRelato from "./Pages/EditarRelato";
 import Favoritos from "./Pages/Favoritos";
+import RelatosProvider from "./contexts/relatos";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/criarrelato" element={<CriarRelato />} />
-        <Route path="/verRelato/:id" element={<VerRelato />} />
-        <Route path="/editarRelato/:id" element={<EditarRelato />} />
-        <Route path="/favoritos" element={<Favoritos />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <RelatosProvider>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/criarrelato" element={<CriarRelato />} />
+          <Route path="/verRelato/:id" element={<VerRelato />} />
+          <Route path="/editarRelato/:id" element={<EditarRelato />} />
+          <Route path="/favoritos" element={<Favoritos />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </RelatosProvider>
   </React.StrictMode>
 );

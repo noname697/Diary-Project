@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Relatos from "../../components/Relatos/index.tsx";
 import "./Favoritos.css";
 import { getFavoritos } from "../../services/relatos.ts";
 import { IoMdArrowBack } from "react-icons/io";
 import styled from "styled-components";
-import { IRelato } from "../../shared/IRelato.ts";
+import { RelatosContext } from "../../contexts/relatos.tsx";
 
 const Background = styled.div`
   width: 100%;
@@ -25,23 +25,23 @@ const Opacity = styled.div`
 `;
 
 const Favoritos = () => {
-  const [listaRelatos, setListaRelatos] = useState<IRelato[]>([]);
+  const {relatos, setRelatos} = useContext(RelatosContext)!
   const componenteReferencia = useRef<HTMLDivElement>(null);
   const [altura, setAltura] = useState(0);
 
 useEffect(() => {
   const fetchRelatosFavoritos = async () => {
     const relatosFavoritos = await getFavoritos();
-    setListaRelatos(relatosFavoritos);
+    setRelatos(relatosFavoritos);
   };
   fetchRelatosFavoritos();
-}, []);
+}, [setRelatos]);
 
  useEffect(() => {
   if (componenteReferencia.current) {
     setAltura(componenteReferencia.current.offsetHeight);
   }
-}, [listaRelatos]);
+}, [relatos]);
 
   return (
     <div className="favoritosContainer">
@@ -54,8 +54,6 @@ useEffect(() => {
         size={30}
         to="/"
         posicaoIcone="left"
-        listaRelatos={listaRelatos}
-        setListaRelatos={setListaRelatos}
       />
     </div>
   );
