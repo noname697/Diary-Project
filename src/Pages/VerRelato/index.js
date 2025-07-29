@@ -5,7 +5,7 @@ import { deleteRelato, getRelatoEspecifico } from "../../services/relatos.js";
 import "./VerRelato.css";
 import { IoMdArrowBack } from "react-icons/io";
 import { useEffect, useState } from "react";
-import PopUp from "../../components/PopUp/index.js";
+import PopUp from "../../components/PopUp/index.tsx";
 
 const VerRelato = () => {
   const [mostrarConfirmacao, setMostrarConfirmacao] = useState(false);
