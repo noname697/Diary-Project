@@ -1,12 +1,12 @@
 import "./Relatos.css";
 import { forwardRef, useContext, useEffect, useReducer } from "react";
 import { Link } from "react-router";
-import { postFavorito } from "../../services/relatos.ts";
-import Relato from "../Relato/index.tsx";
-import Titulo from "../Titulo/index.tsx";
-import reducer, { UPDATE_SCREEN_WIDTH } from "./reducer.ts";
+import { postFavorito } from "../../services/relatos";
+import Relato from "../Relato/index";
+import Titulo from "../Titulo/index";
+import reducer, { UPDATE_SCREEN_WIDTH } from "./reducer";
 import { IconType } from "react-icons";
-import { RelatosContext } from "../../contexts/relatos.tsx";
+import { RelatosContext } from "../../contexts/relatos";
 
 interface RelatosProps {
   texto: string;

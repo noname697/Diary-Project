@@ -1,12 +1,12 @@
 import { useNavigate, useParams } from "react-router";
-import Titulo from "../../components/Titulo/index.tsx";
-import VerRelatoArea from "../../components/VerRelatoArea/index.tsx";
-import { deleteRelato, getRelatoEspecifico } from "../../services/relatos.ts";
+import Titulo from "../../components/Titulo/index";
+import VerRelatoArea from "../../components/VerRelatoArea/index";
+import { deleteRelato, getRelatoEspecifico } from "../../services/relatos";
 import "./VerRelato.css";
 import { IoMdArrowBack } from "react-icons/io";
 import { useEffect, useState } from "react";
-import PopUp from "../../components/PopUp/index.tsx";
-import { IRelato } from "../../shared/IRelato.ts";
+import PopUp from "../../components/PopUp/index";
+import { IRelato } from "../../shared/IRelato";
 
 const VerRelato = () => {
   const [mostrarConfirmacao, setMostrarConfirmacao] = useState(false);
@@ -27,9 +27,11 @@ const VerRelato = () => {
     setMostrarConfirmacao(true);
   };
 
-  const apagaRelato = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const apagaRelato = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     e.preventDefault();
-    await deleteRelato(relato.id)
+    await deleteRelato(relato.id);
     navigate("/");
   };
 

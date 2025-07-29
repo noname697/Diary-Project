@@ -1,10 +1,10 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import Relatos from "../../components/Relatos/index.tsx";
+import Relatos from "../../components/Relatos/index";
 import "./Favoritos.css";
-import { getFavoritos } from "../../services/relatos.ts";
+import { getFavoritos } from "../../services/relatos";
 import { IoMdArrowBack } from "react-icons/io";
 import styled from "styled-components";
-import { RelatosContext } from "../../contexts/relatos.tsx";
+import { RelatosContext } from "../../contexts/relatos";
 
 const Background = styled.div`
   width: 100%;

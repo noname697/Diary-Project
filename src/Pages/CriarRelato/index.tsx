@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Formulario from "../../components/Formulario";
 import "./CriarRelato.css";
-import { postRelatos } from "../../services/relatos.ts";
+import { postRelatos } from "../../services/relatos";
 import { useNavigate } from "react-router";
 import { IoMdArrowBack } from "react-icons/io";
 import Titulo from "../../components/Titulo";
