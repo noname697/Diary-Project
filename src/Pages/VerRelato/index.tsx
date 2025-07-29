@@ -16,9 +16,9 @@ const VerRelato = () => {
 
   useEffect(() => {
     fetchRelato(id);
-  }, [id]);
+  }, [relato, id]);
 
-  const fetchRelato = async (id: number | string | undefined) => {
+  const fetchRelato = async (id: string | undefined) => {
     const relatoEspecifico = await getRelatoEspecifico(id);
     setRelato(relatoEspecifico);
   };
