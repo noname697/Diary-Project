@@ -2,11 +2,25 @@ import { useNavigate } from "react-router";
 import "./VerRelatoArea.css";
 import { MdDelete, MdEdit } from "react-icons/md";
 
+interface VerRelatoAreaProps {
+  color: string;
+  size: string;
+  data: string;
+  texto: string;
+  id: string | number;
+  PopUp: () => void;
+}
 
-const VerRelatoArea = ({ color, size, data, texto, id, PopUp }) => {
-
-  let dataFormatada = new Date(data);
-  dataFormatada = dataFormatada.toLocaleDateString("pt-BR", {
+const VerRelatoArea = ({
+  color,
+  size,
+  data,
+  texto,
+  id,
+  PopUp,
+}: VerRelatoAreaProps) => {
+  const dataObj = new Date(data);
+  const dataFormatada = dataObj.toLocaleDateString("pt-BR", {
     day: "numeric",
     month: "long",
     year: "numeric",
