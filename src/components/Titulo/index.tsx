@@ -5,7 +5,7 @@ import { IconType } from "react-icons";
 interface TituloProps{
   texto: String;
   Icone: IconType;
-  size: string;
+  size: string | number;
   to: string;
   posicaoIcone: string;
 }

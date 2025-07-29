@@ -3,9 +3,9 @@ import "./Formulario.css";
 interface FormularioProps{
   tipo: string;
   placeholder: string;
-  submeterForm: () => void
-  defineData: () => void;
-  defineTexto: () => void
+  submeterForm: (e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  defineData: (e:React.ChangeEvent<HTMLInputElement>) => void;
+  defineTexto: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
   valueTexto: string;
   valueData: string
 }
